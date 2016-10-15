@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {IProduct} from './product';
 import {ProductService} from './product.service';
+import {Response} from '@angular/http';
 
 @Component( {
     selector: 'app-products',
@@ -15,6 +16,7 @@ export class ProductsComponent implements OnInit {
     showImage: boolean = false;
     listFilter: string;
     products: IProduct[];
+    errorMessage: string;
 
     constructor(private productService: ProductService){}
 
@@ -27,6 +29,10 @@ export class ProductsComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.products = this.productService.getProducts();
+        this.productService.getProducts()
+            .subscribe (
+                (data: IProduct[]) => this.products = data,
+                (error: any)  => this.errorMessage = <any>error
+            );
     }
 }
