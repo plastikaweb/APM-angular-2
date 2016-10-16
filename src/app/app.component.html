@@ -1,7 +1,13 @@
 <div class="container">
-  <h1>
-    {{title}}
-  </h1>
-  <app-products></app-products>
+  <div class="header clearfix">
+    <nav>
+      <ul class="nav nav-pills pull-right">
+        <li><a class="active" routerLink="/welcome" routerLinkActive="active">Home</a></li>
+        <li><a routerLink="/products" routerLinkActive="active">Products</a></li>
+      </ul>
+    </nav>
+    <h3 class="text-muted">{{title}}</h3>
+  </div>
+  <router-outlet></router-outlet>
 </div>
 

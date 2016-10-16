@@ -1,4 +1,4 @@
-<div class="panel panel-primary">
+routerLink="/welcome"<div class="panel panel-primary">
     <div class="panel-heading">{{listProductTitle}}</div>
     <div class="panel-body">
         <div class="row">
@@ -34,7 +34,7 @@
                              [style.width.px]="imageWidth"
                              [style.margin.px]="imageMargin"
                     ></td>
-                    <td>{{product.productName}}</td>
+                    <td><a routerLink="/product/{{product.productId}}">{{product.productName}}</a></td>
                     <td>{{product.productCode | lowercase}}</td>
                     <td>{{product.releaseDate}}</td>
                     <td>{{product.price | currency:'EUR':true:'1.2-2'}}</td>
